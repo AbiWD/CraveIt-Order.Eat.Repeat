@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { resObj, cloudinaryUrl } from "../utils/resData";
 
 const Header = () => {
   return (
@@ -22,20 +23,25 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = () => {
-  return (
+const RestaurantCard = (props) => {
+  const { resData } = props;
+
+  const {} = resData;
+
+  return resData.map((restaurant, i) => (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
         className="res-logo"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/FOOD_CATALOG/IMAGES/CMS/2024/11/21/9a379cd4-2bf2-439e-ac06-b1142e1acafa_a532676d-4d23-49c0-8a08-dcb2e93962f6.jpg"
+        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${restaurant.info.cloudinaryImageId}`}
         alt="res-logo"
       />
-      <h3>Meghana Foods</h3>
-      <h4>Biryani, North Indian, Asian</h4>
-      <h4>4.5 Stars</h4>
-      <h4>20 Minutes</h4>
+      <h2>{restaurant.info.name}</h2>
+      <h4>{restaurant.info.areaName}</h4>
+      <h4>avgRating:{restaurant.info.avgRating}</h4>
+      <h4>costForTwo:{restaurant.info.costForTwo}</h4>
+      <p>Cuisines:{restaurant.info.cuisines.join(", ")}</p>
     </div>
-  );
+  ));
 };
 
 const Body = () => {
@@ -43,7 +49,7 @@ const Body = () => {
     <div className="body">
       <div className="search"> Search</div>
       <div className="res-container">
-        <RestaurantCard />
+        <RestaurantCard resData={resObj} />
       </div>
     </div>
   );
