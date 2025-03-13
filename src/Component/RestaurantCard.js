@@ -1,7 +1,7 @@
 const RestaurantCard = (props) => {
   const { resData } = props;
 
-  const {} = resData;
+  const { name, avgRating, cuisines, costForTwo, deliveryTime } = resData?.info;
 
   return resData.map((restaurant, i) => (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
