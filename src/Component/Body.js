@@ -7,12 +7,7 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const [searchText, setSearchText] = useState("");
-
   const fetchData = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -21,13 +16,17 @@ const Body = () => {
     const json = await data.json();
 
     console.log(json);
-    setlistOfRestaurants(
+    setListOfRestaurant(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />

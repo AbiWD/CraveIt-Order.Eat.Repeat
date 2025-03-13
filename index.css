@@ -6,6 +6,7 @@
 
 .logo {
   width: 100px;
+  cursor: pointer;
 }
 
 .nav-items {
@@ -16,6 +17,7 @@
   font-size: 20px;
   display: flex;
   list-style-type: none;
+  cursor: pointer;
 }
 
 .nav-items > ul > li {
