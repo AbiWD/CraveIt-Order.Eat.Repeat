@@ -16,13 +16,13 @@ const RestaurantCard = (props) => {
 
   return (
     <div>
-      <div className="res-card" style={{ backgroundColor: "#f0f0f0" }} key={id}>
+      <div className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200">
         <img
-          className="res-logo"
+          className="rounded-lg"
           src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/${cloudinaryImageId}`}
           alt={name}
         />
-        <h2>{name}</h2>
+        <h3 className="font-bold py-4 text-lg">{name}</h3>
         <h4>{areaName}</h4>
         <h4>Avg Rating: {avgRating}</h4>
         <h4>Cost for Two: {costForTwo}</h4>
