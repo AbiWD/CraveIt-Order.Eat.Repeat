@@ -9,7 +9,6 @@ import RestaurantMenu from "./Component/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 // import Grocery from "./Component/Grocery";
 
-// Chunking
 // Code splitting
 
 const Grocery = lazy(() => import("./Component/Grocery"));
