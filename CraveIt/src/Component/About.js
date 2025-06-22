@@ -1,6 +1,6 @@
 import User from "./User";
 import UserClass from "./UserClass";
-import { Component } from "react";
+import React, { Component } from "react";
 
 class About extends React.Component {
   constructor(props) {
@@ -31,3 +31,7 @@ class About extends React.Component {
 }
 
 export default About;
+
+
+
+
